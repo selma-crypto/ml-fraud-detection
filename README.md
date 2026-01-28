@@ -1,7 +1,7 @@
 ## Fraud Detection System — Machine Learning Engineer Project
 End-to-end fraud detection system built during the Jedha Full-Stack Data Scientist Bootcamp. Système de détection de fraude de bout en bout développé dans le cadre du bootcamp Jedha – Full Stack Data Scientist.
 
-###Project Overview
+### Project Overview
 This project aims to detect fraudulent online payment transactions using Machine Learning. It addresses a real-world constraint: highly imbalanced data and the need to minimize false positives while maximizing fraud detection.
 
 The final solution is based on an optimized XGBoost model and deployed as an interactive web application.
@@ -10,7 +10,7 @@ Ce projet vise à détecter les transactions frauduleuses en ligne à l’aide d
 
 La solution finale repose sur un modèle XGBoost optimisé et déployé sous forme d’application interactive.
 
-Jedha Bootcamp — Skills Covered
+### Jedha Bootcamp — Skills Covered
 This project is part of the Jedha Full-Stack Data Scientist Bootcamp, covering:
 
 Python for Data Science
@@ -41,7 +41,7 @@ Dataset: E-commerce transactions (Kaggle)
 Fraud rate ≈ 2%
 Main challenge: Detect fraud efficiently while avoiding excessive false positives that would block legitimate customers.
 
-Machine Learning Pipeline
+### Machine Learning Pipeline
 Data preprocessing & cleaning
 Exploratory Data Analysis
 Feature Engineering (temporal, behavioral, security, geo features)
@@ -54,7 +54,7 @@ Deployment
 Model Performance
 The final XGBoost model provides the best trade-off between fraud detection and false positives.
 
-Key metrics:
+### Key metrics:
 
 High recall on fraud class
 Stable performance between train and test
@@ -62,7 +62,7 @@ Optimized decision threshold
 Application & Deployment
 The model is deployed as an interactive web application.
 
-Features:
+### Features:
 
 Single transaction analysis (JSON)
 Batch analysis (CSV)
@@ -70,7 +70,7 @@ Fraud probability scoring
 Feature importance explanation
 Live demo: https://patrickcharda-detectionfraude.hf.space
 
-Repository Structure
+### Repository Structure
 app.py # Web application
 Dockerfile # Containerized deployment
 requirements.txt # Dependencies
@@ -82,6 +82,6 @@ Drift detection
 Dynamic thresholding
 Integration of unsupervised anomaly detection
 MLOps pipeline (CI/CD, retraining)
-Author
+### Author
 Machine Learning Engineer Junior
 Jedha Full-Stack Data Scientist Bootcamp
