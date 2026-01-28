@@ -1,5 +1,5 @@
-/assets/hf_key.txt
-/assets/X_test_app.zip
+assets/sample_transaction.json
+assets/sample_batch.csv
 __pycache__/
 .ipynb_checkpoints/
 *.pkl
