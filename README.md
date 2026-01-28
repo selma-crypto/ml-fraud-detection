@@ -129,6 +129,13 @@ Project dependencies
 README.md
 Project documentation
 
+### How to Run
+1. git clone …
+2. pip install -r requirements.txt
+3. python src/train.py
+4. python src/predict.py
+5. streamlit run app/app.py
+
 ### Future Improvements
 
 - Model monitoring in production
