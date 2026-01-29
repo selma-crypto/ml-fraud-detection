@@ -1,5 +1,13 @@
 ## Fraud Detection System — Machine Learning Engineer Project
 
+### How to Run
+
+1) Clone the repository
+```bash
+git clone https://github.com/selma-crypto/ml-fraud-detection.git
+cd ml-fraud-detection
+
+
 End-to-end fraud detection system built during a Full-Stack Data Scientist training project.
 Système de détection de fraude de bout en bout développé dans le cadre d’un projet de formation Data Science.
 
