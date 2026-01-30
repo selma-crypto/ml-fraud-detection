@@ -2,7 +2,15 @@ import json
 import joblib
 import pandas as pd
 import streamlit as st
-from preprocessing import build_features
+
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT / "src"))
+
+from feature_engineering import build_features
+
 
 st.set_page_config(page_title="Fraud Detection Demo", layout="wide")
 
@@ -102,3 +110,4 @@ with tab2:
 
         st.subheader("Top features importantes")
         st.dataframe(fi)
+
