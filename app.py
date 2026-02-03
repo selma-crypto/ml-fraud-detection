@@ -4,7 +4,6 @@ import pandas as pd
 import streamlit as st
 from pathlib import Path
 
-# Import propre depuis src/ (nécessite src/__init__.py)
 from src.feature_engineering import build_features
 
 
@@ -117,4 +116,5 @@ with tab2:
             st.dataframe(fi)
         else:
             st.info("Le modèle ne fournit pas feature_importances_.")
+
 
