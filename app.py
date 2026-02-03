@@ -2,30 +2,35 @@ import json
 import joblib
 import pandas as pd
 import streamlit as st
-
-import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
-sys.path.insert(0, str(ROOT / "src"))
+# Import propre depuis src/ (nécessite src/__init__.py)
+from src.feature_engineering import build_features
 
-from feature_engineering import build_features
+
+# --- Chemins robustes (local + Hugging Face) ---
+ROOT = Path(__file__).resolve().parent
+MODEL_PATH = ROOT / "fraud_xgb_model.pkl"
+FEATURES_PATH = ROOT / "feature_columns.json"
 
 
 st.set_page_config(page_title="Fraud Detection Demo", layout="wide")
 
+
 @st.cache_resource
 def load_artifacts():
-    model = joblib.load("fraud_xgb_model.pkl")
-    with open("feature_columns.json", "r") as f:
+    model = joblib.load(MODEL_PATH)
+    with open(FEATURES_PATH, "r", encoding="utf-8") as f:
         feature_cols = json.load(f)
     return model, feature_cols
+
 
 def align_features(df, feature_cols):
     for col in feature_cols:
         if col not in df.columns:
             df[col] = 0
     return df[feature_cols]
+
 
 st.title("Fraud Detection – Demo Analyste")
 
@@ -102,12 +107,14 @@ with tab2:
         st.metric("Probabilité de fraude", f"{proba:.2%}")
         st.metric("Décision", "FRAUDE" if proba >= threshold else "OK")
 
-        # Feature importance XGBoost
-        fi = pd.DataFrame({
-            "feature": feature_cols,
-            "importance": model.feature_importances_
-        }).sort_values("importance", ascending=False).head(20)
-
+        # Feature importance (sécurisé)
         st.subheader("Top features importantes")
-        st.dataframe(fi)
+        if hasattr(model, "feature_importances_"):
+            fi = pd.DataFrame({
+                "feature": feature_cols,
+                "importance": model.feature_importances_
+            }).sort_values("importance", ascending=False).head(20)
+            st.dataframe(fi)
+        else:
+            st.info("Le modèle ne fournit pas feature_importances_.")
 
