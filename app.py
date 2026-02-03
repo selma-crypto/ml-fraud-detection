@@ -9,7 +9,7 @@ from src.feature_engineering import build_features
 
 # --- Chemins robustes (local + Hugging Face) ---
 ROOT = Path(__file__).resolve().parent
-MODEL_PATH = ROOT / "fraud_xgb_model.pkl"
+MODEL_PATH = ROOT / "models" / "fraud_xgb_model.pkl"
 FEATURES_PATH = ROOT / "feature_columns.json"
 
 
@@ -116,5 +116,6 @@ with tab2:
             st.dataframe(fi)
         else:
             st.info("Le modèle ne fournit pas feature_importances_.")
+
 
 
